@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="./moment.js"></script>
+  <title>カレンダーテスト</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="selectDateBox">
+      <div id="selectDateContents">
+        <div id="selectDay">{{ selectDay }}</div>
+        <div id="selectDate">{{ selectDate }}</div>
+        <div id="selectMonth">{{ selectMonth }}</div>
+      </div>
+    </div>
+    <div id="calenderBox">
+      <div id="calenderContents">
+        <div class="year">{{ year }}</div>
+        <p style="margin-top: 8px;">
+          <a class="arrow rightArrow" @click="goPrevMonth"></a>
+          <span class="month">{{ month }}</span>
+          <a class="arrow leftArrow" @click="goNextMonth"></a>
+        </p>
+        <table class="borderTable">
+          <!-- 曜日 -->
+          <tr class="days">
+            <td v-for="day in days" v-bind:id="day.id">{{ day.value }}</td>
+          </tr>
+          <!-- 日付 -->
+            <template v-for="week in calendarData">
+              <tr class="date">
+                <template v-for="date in week">
+                  <td v-on:click="dateClick(date)">{{ date }}</td>
+                </template>
+              </tr>
+            </template>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- htmlを読んでからでないとVueが表示できないためこの位置でscriptをリンク -->
+  <!-- js側でwindow.onloadを書けばどこででも可 -->
+  <script src="./calender.js"></script>
+
+</body>
+
+</html>

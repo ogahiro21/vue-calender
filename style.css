@@ -1,0 +1,152 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+:root {
+  --blue-dark: 	#004080;
+  --blue-main:  #4e95dc;
+  --bule-light: #72aae2;
+  --gray:       #fafafa;
+  --shadow:     rgba(0,0,0,0.2);
+}
+
+body{
+  /* font-family: 'Montserrat'; */
+}
+
+#app{
+  width: 800px;
+  height: 650px;
+}
+
+#selectDateBox{
+  /* カレンダーの左側に表示 */
+  float: left; 
+  /* 基本設定 */
+  width: 200px;
+  height: 100%;
+  background: var(--blue-dark);
+  color: var(--gray);
+  /* 角の丸み */
+  border-top-left-radius:    30px;
+  border-bottom-left-radius: 30px;
+  /* 影 */
+  box-shadow: 10px 10px var(--shadow);
+}
+
+#selectDateContents{
+  text-align: center;
+  margin-top: 50px;
+}
+
+#selectDate{
+  font-size: 3em;
+  font-weight: 700;
+}
+
+#selectMonth{
+  font-size: 1em;
+}
+
+#calenderBox{
+  /* 選択日付の右側に表示 */
+  float: right;
+  width: 600px;
+  height: 100%;
+  background: var(--gray);
+  /* 角の丸み */
+  border-top-right-radius:    30px;
+  border-bottom-right-radius: 30px;
+  /* 影 */
+  box-shadow: 10px 10px rgba(0,0,0,0.2);
+}
+
+#calenderContents{
+  margin-left: 20px;
+}
+
+#calenderBox table{
+  width: 550px;
+}
+
+.year{
+  font-weight: 600;
+  text-align: right;
+  margin-top: 30px;
+  padding-right: 25px;
+}
+
+.month{
+  display: inline-block;
+  width: 500px;
+  text-align: center;
+}
+
+.borderTable{
+  border-collapse: collapse;
+}
+
+.days{
+  border-top: hidden;
+  border-left: hidden;
+  border-right: hidden;
+}
+
+.date td{
+  border:1px solid #ddd;
+  vertical-align:top;
+  height: 80px;
+  text-align: right;
+  font-weight: 150;
+}
+
+.date td:hover{
+  background-color: var(--shadow);
+}
+
+/* 矢印ボタン */
+.arrow{
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 20px;
+  color: #000;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 15px;
+}
+.arrow::before,
+.arrow::after{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  content: "";
+  vertical-align: middle;
+}
+
+.arrow::before{
+  box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--blue-dark);
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.arrow::after{
+  left: 6px;
+  width: 4px;
+  height: 4px;
+  border-top: 2px solid var(--blue-dark);
+  border-right: 2px solid var(--blue-dark);
+}
+
+.leftArrow::after{
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.rightArrow::after{
+  left: 7px;
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
